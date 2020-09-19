@@ -33,7 +33,7 @@ public class Quest
         }
     }
 
-    //Loop through all the quests it got hold off & find the correct one using id
+    //Loop through all the quests & find the correct one using id
     QuestEvent FindQuestEvent(string id)
     {
         foreach (QuestEvent evt in questEvents)
