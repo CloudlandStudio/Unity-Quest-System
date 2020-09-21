@@ -23,7 +23,7 @@ public class QuestManager : MonoBehaviour
         quest.AddPath(cOpt.GetID(), e.GetID()); //optional chosen path variant to end quest
         quest.AddPath(dOpt.GetID(), e.GetID()); //optional chosen path variant to end quest
 
-        quest.BreadthFirstSearch(a.GetID()); //give everything an order to follow
+        quest.BreadthFirstSearch(a.GetID()); //pass in id of the starting node, give everything an order to follow
 
         quest.PrintPath(); //check all paths have been added into quest
     }
