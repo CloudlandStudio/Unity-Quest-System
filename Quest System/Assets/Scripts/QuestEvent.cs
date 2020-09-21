@@ -16,6 +16,7 @@ public class QuestEvent
     public string description;
     public string id; //unique identifier in quest system so code can find it later
     public EventStatus status;
+    public int order = -1;
 
     //keeps track of where the player can go to, once they've completed this event: pathList gives of the link to the next event that has to be done in the quest
     public List<QuestPath> pathList = new List<QuestPath>();
