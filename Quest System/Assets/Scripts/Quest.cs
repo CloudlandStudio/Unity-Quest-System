@@ -46,12 +46,26 @@ public class Quest
         return null;
     }
 
+    public void BreadthFirstSearch(string id, int orderNumber = 1)
+    {
+        QuestEvent thisEvent = FindQuestEvent(id); //find the quest from this id
+        thisEvent.order = orderNumber;
+        foreach (QuestPath e in thisEvent.pathList) //list of all the events you can get to from thisEvent
+        {
+            if (e.endEvent.order == -1) //run BFS for unordered event from that position
+            {
+                //recursive algorithm that keeps calling itself, working its way down through the graph & update order number each time as it comes through into the next node
+                BreadthFirstSearch(e.endEvent.GetID(), orderNumber + 1);
+            }
+        }
+    }
+
     //debug what you put in the graph afterwards: loop through all quest events & print their given name
     public void PrintPath()
     {
         foreach (QuestEvent evt in questEvents)
         {
-            Debug.Log(evt.eventName);
+            Debug.Log(evt.eventName + " order: " + evt.order);
         }
     }
 }
